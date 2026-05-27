@@ -294,3 +294,39 @@ code {
     border-right-color: var(--border);
   }
 }
+:root {
+  --azul-medico: #0d6efd;
+  --verde-salud: #28a745;
+  --gris-fondo: #f4f6f9;
+}
+
+body {
+  background-color: var(--gris-fondo);
+}
+
+.btn-sismedic {
+  background-color: var(--verde-salud);
+  color: white;
+  border: none;
+}
+
+.btn-sismedic:hover {
+  background-color: #218838;
+}
+
+.card-sismedic {
+  border-left: 5px solid var(--azul-medico);
+}
+
+.form-control:focus {
+  border-color: var(--azul-medico);
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+}
+.nav-link {
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 8px;
+}
