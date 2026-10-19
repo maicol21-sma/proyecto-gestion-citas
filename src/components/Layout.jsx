@@ -62,7 +62,18 @@ export default function Layout({ children }) {
              🏥 Consultorios
             </NavLink>
           </li>
-          <li className="nav-item mt-3">
+          <li className="nav-item mb-2">
+           <NavLink
+             to="/informacion"
+             className={({ isActive }) =>
+             "nav-link " +
+             (isActive ? "bg-white text-dark rounded" : "text-white")
+              }
+              >
+             ℹ️ Información
+            </NavLink>
+          </li>
+            <li className="nav-item mt-3">
              <button className="btn btn-danger w-100" onClick={logout}>
                 Cerrar sesión
              </button>

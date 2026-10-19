@@ -1,65 +1,82 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Layout from "../components/Layout";
+import PrivateRoute from "../components/PrivateRoute";
+
 import Pacientes from "../pages/Pacientes";
 import Medicos from "../pages/Medicos";
 import Consultorios from "../pages/Consultorios";
 import Citas from "../pages/Citas";
+import Informacion from "../pages/Informacion";
 import Login from "../pages/Login";
-import PrivateRoute from "../components/PrivateRoute";
-
 
 export default function AppRouter() {
   return (
     <BrowserRouter>
-       <Routes>
+      <Routes>
+        {/* Inicio de sesión */}
+        <Route path="/login" element={<Login />} />
 
-    {/* LOGIN */}
-    <Route path="/login" element={<Login />} />
-
-    {/* RUTA PROTEGIDA */}
-    <Route
-      path="/"
-      element={
-        <PrivateRoute>
-          <Layout>
-            <Pacientes />
-          </Layout>
-        </PrivateRoute>
-      }
-    />
-
-    <Route
-      path="/citas"
-      element={
-        <PrivateRoute>
-          <Layout>
-            <Citas />
-          </Layout>
-        </PrivateRoute>
-      }
-    />
-
+        {/* Módulo de pacientes */}
         <Route
-          path="/medicos"
+          path="/"
           element={
-            <Layout>
-              <Medicos />
-            </Layout>
+            <PrivateRoute>
+              <Layout>
+                <Pacientes />
+              </Layout>
+            </PrivateRoute>
           }
         />
 
-<Route
-  path="/consultorios"
-  element={
-    <Layout>
-      <Consultorios />
-    </Layout>
-  }
-/>
+        {/* Módulo de citas */}
+        <Route
+          path="/citas"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <Citas />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
 
+        {/* Módulo de médicos */}
+        <Route
+          path="/medicos"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <Medicos />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+
+        {/* Módulo de consultorios */}
+        <Route
+          path="/consultorios"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <Consultorios />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
+
+        {/* Centro de información */}
+        <Route
+          path="/informacion"
+          element={
+            <PrivateRoute>
+              <Layout>
+                <Informacion />
+              </Layout>
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
 }
-
